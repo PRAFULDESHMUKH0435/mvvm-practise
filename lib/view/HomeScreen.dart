@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../utils/Utils.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -9,6 +11,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Scaffold(
+      body: Center(
+        child: InkWell(
+          onTap: (){
+            Utils.FlushBar(context,"No Internet Connection");
+            // Utils.ShowSnackBar(context);
+          },
+          child: Container(
+            child: Text("Click ME"),
+          ),
+        ),
+      ),
+    );
   }
 }
