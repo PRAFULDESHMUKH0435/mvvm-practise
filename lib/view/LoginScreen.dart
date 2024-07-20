@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/utils/Utils.dart';
+import 'package:untitled1/view-model/Auth_View_Model.dart';
 import '../res/Components/Round_Button.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,8 +16,19 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordcontroller = TextEditingController();
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _emailcontroller.dispose();
+    _passwordcontroller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
+    final provider = Provider.of<AuthViewModel>(context);
     return Scaffold(
+      backgroundColor: Colors.green,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
