@@ -9,6 +9,7 @@ class SingleMovieContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.symmetric(horizontal:15.0,vertical: 8.0),
       child: ListTile(
         title: Text(name),
         subtitle: Text(storyline.toString()),

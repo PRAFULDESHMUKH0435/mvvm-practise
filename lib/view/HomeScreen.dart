@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled1/res/Components/AppUrl.dart';
 import 'package:untitled1/res/Components/SingleContainer.dart';
+import '../res/Components/shimmer_container.dart';
 import '../view-model/home_view_model.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final provider = Provider.of<HomeViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.green,
+      appBar: AppBar(title: Text("MVVM "),automaticallyImplyLeading: false,backgroundColor: Colors.green,),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -23,7 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
             future: provider.getMoviesList(AppUrl.moviesapiendpoint),
             builder: (context,snapshot){
               if(snapshot.connectionState==ConnectionState.waiting){
-                return Center(child: CircularProgressIndicator());
+                return ListView.builder(
+                    itemBuilder: (context,index){
+                      return ShimmerContainer();
+                    });
               }else if(snapshot.connectionState==ConnectionState.done){
                   return ListView.builder(
                       itemCount: provider.movieslist.length,

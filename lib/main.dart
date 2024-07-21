@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled1/utils/Routes/Route_Names.dart';
 import 'package:untitled1/utils/Routes/Routes.dart';
@@ -7,13 +8,19 @@ import 'package:untitled1/view-model/Auth_View_Model.dart';
 import 'package:untitled1/view-model/home_view_model.dart';
 import 'package:untitled1/view-model/register_view_model.dart';
 import 'package:untitled1/view-model/splash_view_model.dart';
+import 'package:hive/hive.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +32,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_)=>RegisterViewModel()),
         ],
         child: MaterialApp(
+          color: Colors.green,
           debugShowCheckedModeBanner: false,
           initialRoute: RouteNames.splashscreen,
           onGenerateRoute: Routes.generateRoutes,

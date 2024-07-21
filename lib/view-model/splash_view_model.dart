@@ -7,9 +7,9 @@ class SplashViewModel with ChangeNotifier{
   Future<void> UserAlreadyLoggedInOrNot(BuildContext context) async{
     SharedPreferences sp =await SharedPreferences.getInstance();
     if(sp.containsKey("Usertoken")){
-      Navigator.pushNamed(context, RouteNames.homescreen);
+      Navigator.pushReplacementNamed(context, RouteNames.homescreen);
     }else{
-      Navigator.pushNamed(context, RouteNames.loginscreen);
+      Navigator.pushReplacementNamed(context, RouteNames.loginscreen);
     }
   }
 }
