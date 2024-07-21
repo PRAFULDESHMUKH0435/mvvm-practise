@@ -8,10 +8,11 @@ class AuthRepository{
 
   Future<dynamic> getloginApi(dynamic data) async{
     try{
+      print("Login Api Is ${AppUrl.loginapi} With Data ${data}");
       final response = await _apiServices.postApiResponse(AppUrl.loginapi,data);
       return response;
     }catch(e){
-      throw e;
+      throw e.toString();
     }
   }
 

@@ -5,7 +5,8 @@ import 'package:untitled1/utils/Routes/Route_Names.dart';
 import 'package:untitled1/utils/Routes/Routes.dart';
 import 'package:untitled1/view-model/Auth_View_Model.dart';
 import 'package:untitled1/view-model/home_view_model.dart';
-
+import 'package:untitled1/view-model/register_view_model.dart';
+import 'package:untitled1/view-model/splash_view_model.dart';
 
 void main(){
   runApp(MyApp());
@@ -20,9 +21,12 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (_)=>AuthViewModel()),
           ChangeNotifierProvider(create: (_)=>HomeViewModel()),
+          ChangeNotifierProvider(create: (_)=>SplashViewModel()),
+          ChangeNotifierProvider(create: (_)=>RegisterViewModel()),
         ],
         child: MaterialApp(
-          initialRoute: RouteNames.homescreen,
+          debugShowCheckedModeBanner: false,
+          initialRoute: RouteNames.splashscreen,
           onGenerateRoute: Routes.generateRoutes,
         ),
     );

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:untitled1/data/Network/BaseApiServices.dart';
 import 'package:untitled1/data/app_exception.dart';
@@ -20,7 +21,7 @@ class NetworkApiServices extends BaseApiServices{
   Future<dynamic>  postApiResponse(String url,dynamic body) async{
     dynamic jsonResponse;
     try{
-      final response = await http.post(Uri.parse(url),body: jsonEncode(body)).timeout(Duration(seconds: 10));
+      final response = await http.post(Uri.parse(url),body: body);
       jsonResponse = getResponse(response);
     }on SocketException{
       throw DataException("Error During Communication");
@@ -30,6 +31,7 @@ class NetworkApiServices extends BaseApiServices{
 
 
   getResponse(http.Response response){
+    print("Response Code ${response.statusCode}");
     switch(response.statusCode){
       case 200:
         dynamic responsedata = jsonDecode(response.body);

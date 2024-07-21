@@ -8,15 +8,18 @@ class RoundButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 180,
-      decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.all(Radius.circular(14.0))
+    return GestureDetector(
+      onTap: ontap,
+      child: Container(
+        height: 50,
+        width: 180,
+        decoration: BoxDecoration(
+          color: Colors.green,
+          borderRadius: BorderRadius.all(Radius.circular(14.0))
+        ),
+        margin: EdgeInsets.all(14.0),
+        child: Center(child: Text(title,style:AppStyle.loginbtnstyle,)),
       ),
-      margin: EdgeInsets.all(14.0),
-      child: Center(child: Text(title,style:AppStyle.loginbtnstyle,)),
     );
   }
 }
