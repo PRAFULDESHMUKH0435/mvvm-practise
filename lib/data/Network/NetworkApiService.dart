@@ -34,6 +34,10 @@ class NetworkApiServices extends BaseApiServices{
       case 200:
         dynamic responsedata = jsonDecode(response.body);
         return responsedata;
+
+      case 400:
+      case 404:
+          throw AppException("UnAuthorized Or Invalid", "Error");
       default:
         throw DataException("Exception With Status Code ${response.statusCode} And Message ${response.body}");
     }

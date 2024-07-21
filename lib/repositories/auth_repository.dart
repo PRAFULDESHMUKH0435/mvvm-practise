@@ -6,9 +6,9 @@ class AuthRepository{
 
   BaseApiServices _apiServices = NetworkApiServices();
 
-  Future<dynamic> getloginApi() async{
+  Future<dynamic> getloginApi(dynamic data) async{
     try{
-      final response = await _apiServices.getApiResponse(AppUrl.loginapi);
+      final response = await _apiServices.postApiResponse(AppUrl.loginapi,data);
       return response;
     }catch(e){
       throw e;

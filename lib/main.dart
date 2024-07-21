@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:untitled1/utils/Routes/Route_Names.dart';
 import 'package:untitled1/utils/Routes/Routes.dart';
 import 'package:untitled1/view-model/Auth_View_Model.dart';
+import 'package:untitled1/view-model/home_view_model.dart';
 
 
 void main(){
@@ -18,9 +19,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_)=>AuthViewModel()),
+          ChangeNotifierProvider(create: (_)=>HomeViewModel()),
         ],
         child: MaterialApp(
-          initialRoute: RouteNames.loginscreen,
+          initialRoute: RouteNames.homescreen,
           onGenerateRoute: Routes.generateRoutes,
         ),
     );
