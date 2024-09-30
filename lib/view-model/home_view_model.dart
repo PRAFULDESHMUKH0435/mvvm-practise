@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:untitled1/repositories/home_repository.dart';
 
 class HomeViewModel with ChangeNotifier{

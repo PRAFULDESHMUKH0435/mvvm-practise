@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:untitled1/data/Network/BaseApiServices.dart';
 import 'package:untitled1/data/app_exception.dart';
@@ -18,7 +17,7 @@ class NetworkApiServices extends BaseApiServices{
   }
 
 
-  Future<dynamic>  postApiResponse(String url,dynamic body) async{
+  Future<dynamic> postApiResponse(String url,dynamic body) async{
     dynamic jsonResponse;
     try{
       final response = await http.post(Uri.parse(url),body: body);

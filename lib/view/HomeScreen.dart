@@ -17,7 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
     final provider = Provider.of<HomeViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.green,
-      appBar: AppBar(title: Text("MVVM "),automaticallyImplyLeading: false,backgroundColor: Colors.green,),
+      appBar: AppBar(title: Text("MVVM "),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.green,),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -29,7 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context,index){
                       return ShimmerContainer();
                     });
-              }else if(snapshot.connectionState==ConnectionState.done){
+              }
+              else if(snapshot.connectionState==ConnectionState.done){
                   return ListView.builder(
                       itemCount: provider.movieslist.length,
                       itemBuilder:(context,index){
@@ -39,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             name: movie['title'],
                             storyline: movie['storyline'],
                             imageurl:movie['posterurl']);
-                      });
+                  });
               }
               else{
                 return Center(child: Text("SomeThing Went Wrong"));

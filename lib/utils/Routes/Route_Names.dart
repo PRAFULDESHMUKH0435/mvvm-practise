@@ -3,5 +3,4 @@ class RouteNames{
   static const loginscreen = "Login_Screen";
   static const registerscreen = "Register_Screen";
   static const splashscreen = "Splash_Screen";
-
 }

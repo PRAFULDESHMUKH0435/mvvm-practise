@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled1/utils/Routes/Route_Names.dart';
 import 'package:untitled1/utils/Routes/Routes.dart';
@@ -8,7 +7,6 @@ import 'package:untitled1/view-model/Auth_View_Model.dart';
 import 'package:untitled1/view-model/home_view_model.dart';
 import 'package:untitled1/view-model/register_view_model.dart';
 import 'package:untitled1/view-model/splash_view_model.dart';
-import 'package:hive/hive.dart';
 
 void main() {
   runApp(MyApp());
